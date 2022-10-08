@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-
+import Terminal from "./Tarminal";
 class App extends Component {
   render() {
     return (
       <>
         <div>
-          <h1>Hello TS-React!</h1>
-          <h1>皆さん、こんにちは</h1>
-          <blockquote>
-            <p>2022/10/08</p>
-          </blockquote>
+          <h1>CUI portfolio</h1>
+          <Terminal />
         </div>
       </>
     );

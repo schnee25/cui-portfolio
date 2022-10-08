@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "src", // 追加。import文をsrcからの絶対パスで記述出来る
+    "paths": {
+      "src/*": ["*"]
+    },
     "target": "es5",
     "module": "es2015",
     "types": ["node"],
@@ -13,5 +17,7 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
-  }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*"]
 }

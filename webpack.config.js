@@ -27,7 +27,7 @@ module.exports = {
   },
   // モジュール解決
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".json"],
+    extensions: [".ts", ".tsx", ".js", ".jsx", ".json"],
   },
 
   // 開発モード設定
