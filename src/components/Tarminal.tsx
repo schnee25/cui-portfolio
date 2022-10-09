@@ -52,11 +52,74 @@ const Terminal: FC = () => {
   const scrollBottom = (): void => {
     document.getElementById("bottom").scrollIntoView({ behavior: "auto" });
   };
+  const cdCompletion = (path: string, lsItems: string[]): void => {
+    // lsItemsのフォルダから前方一致のものを抽出
+    let completion_detail = lsItems
+      .filter((item) => !item.includes("."))
+      .find((item) => !item.indexOf(path));
+
+    if (completion_detail !== undefined) {
+      setCommand("cd " + completion_detail + "/");
+    }
+  };
+
+  const catCompletion = (file: string, catItems: string[]): void => {
+    // catItemsのファイルから前方一致のものを抽出
+    let completion_detail = catItems
+      .filter((item) => item.includes("."))
+      .find((item) => !item.indexOf(file));
+
+    if (completion_detail !== undefined) {
+      setCommand("cat " + completion_detail);
+    }
+  };
 
   const handleOnTab = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Tab") {
       // 次の対象のオブジェクトに移動しない
       e.preventDefault();
+
+      // cd補完
+      if (command.startsWith("cd")) {
+        // 入力された内容からdirNameを抽出
+        let dirName = command.replace("cd ", "").replace(/\/$/, "");
+
+        // pathが入力されていないときに補完しない
+        if (dirName !== "") {
+          // YUKI_PATHの時, LS_YUKI_ITEMから'.'を含まず前方一致のものを補完
+          if (currentDir === YUKI_PATH) {
+            cdCompletion(dirName, LS_YUKI_ITEM);
+          }
+
+          // HOME_PATHの時, LS_HOME_ITEMから'.'を含まず前方一致のものを補完
+          else if (currentDir === HOME_PATH) {
+            cdCompletion(dirName, LS_HOME_ITEM);
+          }
+        }
+      }
+      // cat補完
+      else if (command.startsWith("cat")) {
+        // 入力された内容からfileNameを抽出
+        let fileName = command.replace("cat ", "").replace(/\/$/, "");
+
+        // pathが入力されていないときに補完しない
+        if (fileName !== "") {
+          // YUKI_PATHの時, LS_YUKI_ITEMから'.'を含んで前方一致のものを補完
+          if (currentDir === YUKI_PATH) {
+            catCompletion(fileName, LS_YUKI_ITEM);
+          }
+
+          // PRODUCT_PATHの時, LS_PRODUCTS_ITEMから'.'を含んで前方一致のものを補完
+          else if (currentDir === PRODUCTS_PATH) {
+            catCompletion(fileName, LS_PRODUCTS_ITEM);
+          }
+
+          // CONTACTS_PATHの時, LS_CONTACTS_ITEMから'.'を含んで前方一致のものを補完
+          else if (currentDir === CONTACTS_PATH) {
+            catCompletion(fileName, LS_CONTACTS_ITEM);
+          }
+        }
+      }
     }
   };
 

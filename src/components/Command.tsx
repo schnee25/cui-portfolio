@@ -1,7 +1,8 @@
 import React from "react";
 
 import NotFound from "./command/error/NotFound";
-
+import NoFileOrDir from "./command/error/NoFileOrDir";
+import NotDir from "./command/error/NotDir";
 import Ls from "./command/ls/Ls";
 
 import {
@@ -14,6 +15,7 @@ import {
   LS_PRODUCTS_ITEM,
   LS_CONTACTS_ITEM,
 } from "../util";
+import Cat from "./command/cat/Cat";
 
 let dirItem: string[] = LS_YUKI_ITEM;
 
@@ -71,33 +73,31 @@ const handler = (
         setCurrentDir(YUKI_PATH);
       } else if (currentDir === CONTACTS_PATH) {
         setCurrentDir(YUKI_PATH);
+      } else {
+        return dirItem.includes(path) ? (
+          <NotDir fileName={path} />
+        ) : (
+          <NoFileOrDir command={"cd"} fileOrDir={path} />
+        );
       }
     }
-    // else {
-    //   return dirItem.includes(path) ? (
-    //     <NotDir fileName={path} />
-    //   ) : (
-    //     <NoFileOrDir command={"cd"} fileOrDir={path} />
-    //   );
-    // }
+
+    // cat
+    else if (command === "cat") {
+      // なにも実行しない
+    } else if (command.startsWith("cat ")) {
+      // 入力された内容からfileNameを抽出
+      let fileName = command.replace("cat ", "").replace(/\/$/, "");
+      return (
+        <Cat
+          dirItem={dirItem}
+          fileName={fileName}
+          currentDir={currentDir}
+          isFormatted={isFormatted}
+        />
+      );
+    }
   }
-
-  //   // cat
-  //   else if (command === "cat") {
-  //     // なにも実行しない
-  //   } else if (command.startsWith("cat ")) {
-  //     // 入力された内容からfileNameを抽出
-  //     let fileName = command.replace("cat ", "").replace(/\/$/, "");
-
-  //     return (
-  //       <Cat
-  //         dirItem={dirItem}
-  //         fileName={fileName}
-  //         currentDir={currentDir}
-  //         isFormatted={isFormatted}
-  //       />
-  //     );
-  //   }
 
   //   // whoami
   //   else if (command === "whoami") {
@@ -119,24 +119,6 @@ const handler = (
   //     const dateStr = getDateStr();
 
   //     return <DateNow dateStr={dateStr} />;
-  //   }
-
-  //   // white (?)
-  //   else if (command === "white" && currentDir === WHITE_PATH) {
-  //     return <UbuntuText>No Path provided. Nothing to do 😴</UbuntuText>;
-  //   } else if (command.startsWith("white ") && currentDir === WHITE_PATH) {
-  //     let whiteFile = command.replace("white ", "").replace(/\/$/, "");
-
-  //     return <White whiteFile={whiteFile} setIsFormatted={setIsFormatted} />;
-  //   }
-
-  //   // slide
-  //   else if (command === "slide" && currentDir === SLIDE_PATH) {
-  //     return <UbuntuText>No Path provided. Nothing to do 😴</UbuntuText>;
-  //   } else if (command.startsWith("slide ") && currentDir === SLIDE_PATH) {
-  //     let fileName = command.replace("slide ", "").replace(/\/$/, "");
-
-  //     return <Slide dirItem={dirItem} fileName={fileName} currentDir={currentDir} />;
   //   }
 
   //   // pip
