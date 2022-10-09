@@ -73,7 +73,7 @@ const Terminal: FC = () => {
               {logs.map((log: { command: string; dir: string }, idx: number) => (
                 <div key={idx}>
                   <span>
-                    <span>yuki@nyan</span>
+                    <span>yuki@portfolio</span>
                     <span>:</span>
                     <span>~</span>
                     <Directory dir={log.dir} />
@@ -84,7 +84,7 @@ const Terminal: FC = () => {
                 </div>
               ))}
               <span>
-                <span>yuki@nyan</span>
+                <span>yuki@portfolio</span>
                 <span>:</span>
                 <span>~</span>
                 <Directory dir={currentDir} />
