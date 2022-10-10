@@ -47,7 +47,6 @@ const handler = (
 
     return <Ls dirItem={dirItem} />;
   }
-
   // cd
   else if (command === "cd") {
     setCurrentDir(YUKI_PATH);
@@ -81,22 +80,21 @@ const handler = (
         );
       }
     }
-
-    // cat
-    else if (command === "cat") {
-      // なにも実行しない
-    } else if (command.startsWith("cat ")) {
-      // 入力された内容からfileNameを抽出
-      let fileName = command.replace("cat ", "").replace(/\/$/, "");
-      return (
-        <Cat
-          dirItem={dirItem}
-          fileName={fileName}
-          currentDir={currentDir}
-          isFormatted={isFormatted}
-        />
-      );
-    }
+  }
+  // cat
+  else if (command === "cat") {
+    // なにも実行しない
+  } else if (command.startsWith("cat ")) {
+    // 入力された内容からfileNameを抽出
+    let fileName = command.replace("cat ", "").replace(/\/$/, "");
+    return (
+      <Cat
+        dirItem={dirItem}
+        fileName={fileName}
+        currentDir={currentDir}
+        isFormatted={isFormatted}
+      />
+    );
   }
 
   //   // whoami
