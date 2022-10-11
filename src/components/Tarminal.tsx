@@ -186,7 +186,7 @@ const TerminalInput = styled.input`
 `;
 
 const Hscreen = styled.div`
-  height: 20vh;
+  height: 15vh;
 `;
 
 export default Terminal;
