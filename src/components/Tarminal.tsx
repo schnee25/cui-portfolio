@@ -14,6 +14,7 @@ import {
   LS_PRODUCTS_ITEM,
   LS_CONTACTS_ITEM,
 } from "../util";
+import Txt from "./Txt";
 
 let historyNum = 0;
 let historyStateNum = 0;
@@ -132,22 +133,22 @@ const Terminal: FC = () => {
           {logs.map((log: { command: string; dir: string }, idx: number) => (
             <div key={idx}>
               <span>
-                <span>yuki@portfolio</span>
-                <span>:</span>
-                <span>~</span>
+                <Txt color={COLOR_PALETTE.WHITE}>yuki@portfolio</Txt>
+                <Txt color={COLOR_PALETTE.WHITE}>:</Txt>
+                <Txt color={COLOR_PALETTE.WHITE}>~</Txt>
                 <Directory dir={log.dir} />
-                <span> $ </span>
+                <Txt color={COLOR_PALETTE.WHITE}> $ </Txt>
               </span>
-              <span>{log.command}</span>
+              <Txt color={COLOR_PALETTE.WHITE}> {log.command}</Txt>
               {replies[idx]}
             </div>
           ))}
           <span>
-            <span>yuki@portfolio</span>
-            <span>:</span>
-            <span>~</span>
+            <Txt color={COLOR_PALETTE.WHITE}>yuki@portfolio</Txt>
+            <Txt color={COLOR_PALETTE.WHITE}>:</Txt>
+            <Txt color={COLOR_PALETTE.WHITE}>~</Txt>
             <Directory dir={currentDir} />
-            <span> $ </span>
+            <Txt color={COLOR_PALETTE.WHITE}> $ </Txt>
           </span>
 
           <TerminalInput
@@ -169,7 +170,7 @@ const Terminal: FC = () => {
 };
 
 const Container = styled.div`
-  background-color: ${COLOR_PALETTE.BLACK30};
+  background-color: ${COLOR_PALETTE.DARK10};
   border-radius: 10px;
 `;
 const InputArea = styled.div`
@@ -180,6 +181,8 @@ const InputArea = styled.div`
 const TerminalInput = styled.input`
   background-color: transparent;
   border: none;
+  color: ${COLOR_PALETTE.WHITE};
+  caret-color: ${COLOR_PALETTE.WHITE};
   &:focus-within {
     outline: none;
   }

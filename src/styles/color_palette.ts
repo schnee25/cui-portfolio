@@ -4,4 +4,12 @@ export const COLOR_PALETTE = {
   BLACK20: "#767676",
   BLACK30: "#BDBDBD",
   BLACK40: "#DDDDDD",
+  DARK10: "#011B5B",
+  DARK20: "#062466",
+  DARK30: "#173977",
+  DARK40: "#27518E",
+  BLUE10: "#006FA1",
+  BLUE20: "#0085BC",
+  BLUE30: "#009CD7",
+  BLUE40: "#39CBFB",
 } as const;
