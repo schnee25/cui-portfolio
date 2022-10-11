@@ -149,7 +149,9 @@ const Terminal: FC = () => {
             <Directory dir={currentDir} />
             <span> $ </span>
           </span>
-          <input
+
+          <TerminalInput
+            autoFocus
             id="command-area"
             type="text"
             autoComplete="off"
@@ -173,6 +175,14 @@ const Container = styled.div`
 const InputArea = styled.div`
   overflow: auto;
   height: 30vh;
+  padding-left: 10px;
+`;
+const TerminalInput = styled.input`
+  background-color: transparent;
+  border: none;
+  &:focus-within {
+    outline: none;
+  }
 `;
 
 const Hscreen = styled.div`
