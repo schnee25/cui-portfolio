@@ -128,45 +128,40 @@ const Terminal: FC = () => {
       <Hscreen />
       <Container>
         <Header />
-        aaa
-        <div>
-          <div>
-            <div></div>
-            <div>
-              {logs.map((log: { command: string; dir: string }, idx: number) => (
-                <div key={idx}>
-                  <span>
-                    <span>yuki@portfolio</span>
-                    <span>:</span>
-                    <span>~</span>
-                    <Directory dir={log.dir} />
-                    <span> $ </span>
-                  </span>
-                  <span>{log.command}</span>
-                  {replies[idx]}
-                </div>
-              ))}
+        <InputArea>
+          {logs.map((log: { command: string; dir: string }, idx: number) => (
+            <div key={idx}>
               <span>
                 <span>yuki@portfolio</span>
                 <span>:</span>
                 <span>~</span>
-                <Directory dir={currentDir} />
+                <Directory dir={log.dir} />
                 <span> $ </span>
               </span>
-              <input
-                id="command-area"
-                type="text"
-                autoComplete="off"
-                value={command}
-                onChange={handleChange}
-                onKeyPress={handleOnEnter}
-                onKeyDown={handleOnTab}
-              />
-              <div id="bottom" style={{ float: "left" }} />
+              <span>{log.command}</span>
+              {replies[idx]}
             </div>
-          </div>
-        </div>
-      </Container>
+          ))}
+          <span>
+            <span>yuki@portfolio</span>
+            <span>:</span>
+            <span>~</span>
+            <Directory dir={currentDir} />
+            <span> $ </span>
+          </span>
+          <input
+            id="command-area"
+            type="text"
+            autoComplete="off"
+            value={command}
+            onChange={handleChange}
+            onKeyPress={handleOnEnter}
+            onKeyDown={handleOnTab}
+          />
+          <div id="bottom" style={{ float: "left" }} />
+        </InputArea>
+      </Container>{" "}
+      <Hscreen />
     </>
   );
 };
@@ -175,9 +170,13 @@ const Container = styled.div`
   background-color: ${COLOR_PALETTE.BLACK30};
   border-radius: 10px;
 `;
+const InputArea = styled.div`
+  overflow: auto;
+  height: 30vh;
+`;
 
 const Hscreen = styled.div`
-  height: 30vh;
+  height: 20vh;
 `;
 
 export default Terminal;
