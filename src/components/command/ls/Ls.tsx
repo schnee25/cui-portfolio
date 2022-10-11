@@ -11,13 +11,19 @@ const Ls: FC<Props> = ({ dirItem }) => (
     {dirItem
       .filter((fileName) => fileName.includes("."))
       .map((item) => (
-        <span key={item}>{item}</span>
+        <>
+          <span key={item}>{item}</span>
+          <br />
+        </>
       ))}
     {/* フォルダは青 */}
     {dirItem
       .filter((fileName) => !fileName.includes("."))
       .map((item) => (
-        <span key={item}>{item}</span>
+        <>
+          <span key={item}>{item}</span>
+          <br />
+        </>
       ))}
   </p>
 );
