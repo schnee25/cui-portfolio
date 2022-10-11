@@ -49,4 +49,12 @@ export const CAT_FILE_CONTENTS: catFiles = {
     content: "Gmail:yukino.oyamada@gmail.com",
     url: "mailto:yukino.oyamada@gmail.com",
   },
+  "portfolio.txt": {
+    content: "yukipedia.io",
+    url: "https://yukipedia.io/",
+  },
+  "cui-portfolio.txt": {
+    content: "cui-portfolio",
+    // url: "https://yukipedia.io/",
+  },
 };
