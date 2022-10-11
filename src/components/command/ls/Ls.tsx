@@ -2,7 +2,7 @@ import React from "react";
 import { FC } from "react";
 import { COLOR_PALETTE } from "../../../styles/color_palette";
 import styled from "styled-components";
-import Txt from "../../Txt";
+import { Txt } from "../../Txt";
 
 type Props = {
   dirItem: string[];

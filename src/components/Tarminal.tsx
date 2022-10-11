@@ -14,7 +14,7 @@ import {
   LS_PRODUCTS_ITEM,
   LS_CONTACTS_ITEM,
 } from "../util";
-import Txt from "./Txt";
+import { Txt, DefaultTxt } from "./Txt";
 
 let historyNum = 0;
 let historyStateNum = 0;
@@ -133,22 +133,22 @@ const Terminal: FC = () => {
           {logs.map((log: { command: string; dir: string }, idx: number) => (
             <div key={idx}>
               <span>
-                <Txt color={COLOR_PALETTE.WHITE}>yuki@portfolio</Txt>
-                <Txt color={COLOR_PALETTE.WHITE}>:</Txt>
-                <Txt color={COLOR_PALETTE.WHITE}>~</Txt>
+                <DefaultTxt>yuki@portfolio</DefaultTxt>
+                <DefaultTxt>:</DefaultTxt>
+                <DefaultTxt>~</DefaultTxt>
                 <Directory dir={log.dir} />
-                <Txt color={COLOR_PALETTE.WHITE}> $ </Txt>
+                <DefaultTxt> $ </DefaultTxt>
               </span>
-              <Txt color={COLOR_PALETTE.WHITE}> {log.command}</Txt>
+              <DefaultTxt> {log.command}</DefaultTxt>
               {replies[idx]}
             </div>
           ))}
           <span>
-            <Txt color={COLOR_PALETTE.WHITE}>yuki@portfolio</Txt>
-            <Txt color={COLOR_PALETTE.WHITE}>:</Txt>
-            <Txt color={COLOR_PALETTE.WHITE}>~</Txt>
+            <DefaultTxt>yuki@portfolio</DefaultTxt>
+            <DefaultTxt>:</DefaultTxt>
+            <DefaultTxt>~</DefaultTxt>
             <Directory dir={currentDir} />
-            <Txt color={COLOR_PALETTE.WHITE}> $ </Txt>
+            <DefaultTxt> $ </DefaultTxt>
           </span>
 
           <TerminalInput
