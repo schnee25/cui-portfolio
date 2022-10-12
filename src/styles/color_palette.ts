@@ -12,4 +12,5 @@ export const COLOR_PALETTE = {
   BLUE20: "#0085BC",
   BLUE30: "#009CD7",
   BLUE40: "#39CBFB",
+  PINK10: "#e61283",
 } as const;
