@@ -183,7 +183,7 @@ const Container = styled.div`
 `;
 const InputArea = styled.div`
   overflow: auto;
-  height: 30vh;
+  height: 40vh;
   padding-left: 10px;
 `;
 const TerminalInput = styled.input`
