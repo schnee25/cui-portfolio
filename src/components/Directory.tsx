@@ -10,7 +10,7 @@ type Props = {
 const Directory: FC<Props> = ({ dir }) => {
   const displayDir = dir.replace("/home/yuki", "");
 
-  return <Txt color={COLOR_PALETTE.WHITE}>{displayDir}</Txt>;
+  return <Txt color={COLOR_PALETTE.PINK10}>{displayDir}</Txt>;
 };
 
 export default Directory;

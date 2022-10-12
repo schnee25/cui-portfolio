@@ -133,9 +133,13 @@ const Terminal: FC = () => {
           {logs.map((log: { command: string; dir: string }, idx: number) => (
             <div key={idx}>
               <span>
-                <DefaultTxt>yuki@portfolio</DefaultTxt>
+                <Txt color={COLOR_PALETTE.BLUE30} bold>
+                  yuki@portfolio
+                </Txt>
                 <DefaultTxt>:</DefaultTxt>
-                <DefaultTxt>~</DefaultTxt>
+                <Txt color={COLOR_PALETTE.PINK10} bold>
+                  ~
+                </Txt>
                 <Directory dir={log.dir} />
                 <DefaultTxt> $ </DefaultTxt>
               </span>
@@ -144,9 +148,13 @@ const Terminal: FC = () => {
             </div>
           ))}
           <span>
-            <DefaultTxt>yuki@portfolio</DefaultTxt>
+            <Txt color={COLOR_PALETTE.BLUE30} bold>
+              yuki@portfolio
+            </Txt>
             <DefaultTxt>:</DefaultTxt>
-            <DefaultTxt>~</DefaultTxt>
+            <Txt color={COLOR_PALETTE.PINK10} bold>
+              ~
+            </Txt>
             <Directory dir={currentDir} />
             <DefaultTxt> $ </DefaultTxt>
           </span>
