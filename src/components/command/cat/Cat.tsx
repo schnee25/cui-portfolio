@@ -22,7 +22,6 @@ const Cat: FC<Props> = ({ dirItem, fileName, currentDir, isFormatted }) => {
     return CAT_FILE_CONTENTS[fileName].url === undefined ? (
       <>
         <DefaultPara>{CAT_FILE_CONTENTS[fileName].content}</DefaultPara>
-        <br />
       </>
     ) : (
       <>
