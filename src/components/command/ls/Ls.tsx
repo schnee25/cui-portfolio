@@ -26,7 +26,7 @@ const Ls: FC<Props> = ({ dirItem }) => (
       .filter((fileName) => !fileName.includes("."))
       .map((item) => (
         <>
-          <Txt color={COLOR_PALETTE.BLUE30} key={item}>
+          <Txt color={COLOR_PALETTE.PINK10} bold key={item}>
             {item}
           </Txt>
           <br />

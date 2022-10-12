@@ -170,7 +170,7 @@ const Terminal: FC = () => {
 };
 
 const Container = styled.div`
-  background-color: ${COLOR_PALETTE.DARK10};
+  background-color: ${COLOR_PALETTE.BLACK10};
   border-radius: 10px;
 `;
 const InputArea = styled.div`

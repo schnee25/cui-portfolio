@@ -4,6 +4,7 @@ import IsDir from "../error/IsDir";
 
 import { CAT_FILE_CONTENTS } from "../../../util";
 import React from "react";
+import { DefaultPara, DefaultTxt } from "../../../components/Txt";
 
 type Props = {
   dirItem: string[];
@@ -19,13 +20,18 @@ const Cat: FC<Props> = ({ dirItem, fileName, currentDir, isFormatted }) => {
   } else if (dirItem.includes(fileName)) {
     // urlがないならhover時にunderlineをつけない
     return CAT_FILE_CONTENTS[fileName].url === undefined ? (
-      <p>{CAT_FILE_CONTENTS[fileName].content}</p>
+      <>
+        <DefaultPara>{CAT_FILE_CONTENTS[fileName].content}</DefaultPara>
+        <br />
+      </>
     ) : (
-      <p>
-        <a href={CAT_FILE_CONTENTS[fileName].url} target="_blank" rel="noreferrer">
-          {CAT_FILE_CONTENTS[fileName].content}
-        </a>
-      </p>
+      <>
+        <DefaultPara>
+          <a href={CAT_FILE_CONTENTS[fileName].url} target="_blank" rel="noreferrer">
+            {CAT_FILE_CONTENTS[fileName].content}
+          </a>
+        </DefaultPara>
+      </>
     );
   } else {
     return <NoFileOrDir command={"cat"} fileOrDir={fileName} />;
